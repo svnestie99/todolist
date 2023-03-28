@@ -1,0 +1,417 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1.1px;
+  background-color: #f8f9fa;
+  transition: 0.6s;
+}
+
+.main-wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 480px;
+}
+
+header {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  z-index: 1111;
+  padding: 0px 40px;
+  margin-bottom: 30px;
+  color: #333;
+  transition: 0.6s;
+}
+
+.header_logo {
+  text-transform: uppercase;
+  display: flex;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+  font-size: 30px;
+}
+h1 {
+  text-transform: uppercase;
+  display: flex;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+  font-size: 30px;
+  color: red;
+}
+.toggle {
+  cursor: pointer;
+  font-size: 30px;
+  color: #333;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0px 75px;
+
+  min-height: 88vh;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+}
+
+input {
+  font-family: 'Playfair Display', serif;
+  outline: none;
+}
+
+.tasks_creator_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tasks_creator_container .dark_theme {
+  color: #fff;
+}
+
+.tasks_control {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.tasks_counter {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  position: relative;
+  color: #333;
+  transition: 0.6s;
+}
+
+.delete_tasks {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  background-color: #fff;
+  color: #333;
+  width: 100px;
+  height: 40px;
+  transition: 0.5s;
+}
+.delete_tasks:hover {
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.tasks_creator {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  min-width: 35%;
+}
+.tasks_creator .dark-theme {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.tasks_creator input {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  width: 100%;
+  padding: 20px;
+  color: #333;
+  margin-right: -1px;
+  margin-top: 2px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 2px solid #333;
+  background-color: #f8f9fa00;
+  transition: 0.6s;
+}
+
+.todo_container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.done {
+  color: green;
+  margin-left: 5px;
+}
+
+.create_task {
+  cursor: pointer;
+  position: relative;
+  font-size: 55px;
+  color: #333;
+  transition: 0.5s;
+  padding: 15px;
+}
+.create_task:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.todos {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+}
+.task {
+  display: flex;
+  position: relative;
+  min-width: 30%;
+  height: 80px;
+  margin: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: 0.6s;
+}
+
+.task_status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  /* border-right: 2px solid rgba(0, 0, 0, 0.167); */
+}
+
+.task_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 65%;
+  padding: 0px 20px;
+}
+
+.task_name input {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  font-size: 20px;
+  letter-spacing: 1.2px;
+  border: none;
+  color: #000;
+  background-color: #f8f9fa00;
+}
+.task_description input {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  font-size: 15px;
+  border: none;
+  color: #333;
+  padding: 5px;
+  background-color: #f8f9fa00;
+}
+
+.task_control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+  padding: 10px;
+}
+
+.task_edit_btn {
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-weight: 700;
+  width: 60px;
+  padding: 2px;
+  border-radius: 20px;
+  color: #333;
+  border: 1px solid #333;
+  transition: 0.5s;
+}
+
+.task_edit_btn:hover {
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.task_control i {
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  transition: 0.6s;
+}
+.task_control .dark-theme-font {
+  color: #fff;
+  
+}
+
+.task .active {
+  border-bottom: 2px solid gray;
+  margin-bottom: -2px;
+}
+.dark-theme {
+  background-color: #333;
+  color: #fff;
+}
+.dark-theme-font {
+  color: #fff;
+}
+.task .dark-theme {
+  color: #fff;
+}
+.checked {
+  background-color: green;
+  transition: 0.6s;
+  color: #f2f2f2;
+}
+
+.task .checked {
+  transition: 0.6s;
+  color: #f2f2f2;
+}
+
+@media screen and (max-width: 650px) {
+  .todo {
+    margin: 0;
+  }
+  .tasks_creator {
+    width: 70%;
+  }
+  .task {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  header {
+    height: 40px;
+    padding: 0px 20px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .header_logo {
+    font-size: 20px;
+  }
+  .toggle {
+    font-size: 20px;
+  }
+  .tasks_counter {
+    font-size: 14px;
+  }
+  .delete_tasks {
+    font-size: 12px;
+    height: 25px;
+    width: 70px;
+  }
+  .tasks_creator input {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .task {
+    height: 65px;
+  }
+  .task input {
+    font-size: 14px;
+  }
+  .task_edit_btn {
+    width: 40px;
+    font-size: 10px;
+  }
+  .task_control i {
+    font-size: 14px;
+  }
+  .create_task {
+    font-size: 40px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.task_check{ 
+  display: flex;
+  align-items: center;
+}
+
+.task_check .checkbox {
+  margin-right: 10px;
+}
+
+.task_check input {
+  -webkit-appearance: none;
+  position: absolute; 
+}
+
+.checkbox { 
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 2px solid gray;
+  background: none;
+  border-radius: 50%;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 80%;
+  height: auto;
+  display: none;
+
+}
+
+.task_check input:checked ~ .checkbox .checkmark {
+  display: block;
+  color: green;
+}
+
+.task_check input:checked ~ .checkbox {
+  background: #fff;
+  border: 2px solid #fff;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <script
+      src="https://kit.fontawesome.com/12753d514b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>TO-DO list</title>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <header>
+        <h1>TODO</h1>
+        <div class="header_logo">MANAGE YOUR DAY</div>
+        <i class="fas fa-moon toggle"></i>
+      </header>
+      <div class="todo">
+        <div class="tasks_creator_container">
+          <div class="tasks_control">
+            <div class="tasks_counter"></div>
+            <button class="delete_tasks">Delete all</button>
+          </div>
+
+          <div class="tasks_creator">
+            <input type="text" placeholder="Enter task name" />
+            <input type="text" placeholder="Enter task description" />
+            <i class="fas fa-plus-circle create_task"></i>
+          </div>
+        </div>
+        <div class="todo_container">
+          <div class="todos">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
