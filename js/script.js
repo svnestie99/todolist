@@ -117,13 +117,13 @@ function editTask() {
 }
 function setCheckedStatus() {
   let target = event.target;
-console.log(target);
-  if (target.classList.contains('checkbox')) {
+
+  if (target.classList.contains('hidden-checkbox')) {
     const task_input = target.offsetParent.getElementsByClassName('task_input');
     const task_btns =
       target.offsetParent.getElementsByClassName('task_control')[0];
 
-      target.offsetParent.classList.toggle('checked');
+    target.offsetParent.classList.toggle('checked');
 
     localStorage.setItem(
       target.offsetParent.dataset.id,
@@ -166,12 +166,17 @@ window.onload = function getStorageTasks() {
 
       task.insertAdjacentHTML(
         'afterbegin',
-        `<div class="task_status">
-              <input class="task_check" type="checkbox" ${
-                JSON.parse(localStorage.getItem(task.dataset.id)).isChecked
-                  ? 'checked'
-                  : null
-              }/>
+        ` <div class="task_status">
+              <label class="task_check">
+                <input class="hidden-checkbox" type="checkbox"  ${
+                  JSON.parse(localStorage.getItem(task.dataset.id)).isChecked
+                    ? 'checked'
+                    : null
+                } />
+                <div class="checkbox">
+                  <i class="fas fa-check checkmark"></i>
+                </div>
+              </label>
             </div>
             <div class="task_info">
               <div class="task_name">
@@ -286,4 +291,3 @@ deleteAllTasks.addEventListener('click', () => {
 });
 
 //добавить проверку на наличие пустых и непустных инпутов
-//уаление в локалсторадж исправить, потому что удаляет тему
