@@ -41,18 +41,14 @@ function addTask() {
                   localStorage.getItem('theme-mode') == 'dark'
                     ? 'dark-theme'
                     : ''
-                }" type="text" readonly value='${
-        JSON.parse(localStorage.getItem(task.dataset.id)).name
-      }'/>
+                }" type="text" readonly value='${input[0].value}'/>
               </div>
               <div class="task_description">
                 <input class="task_input ${
                   localStorage.getItem('theme-mode') == 'dark'
                     ? 'dark-theme'
                     : ''
-                }" type="text" readonly value='${
-        JSON.parse(localStorage.getItem(task.dataset.id)).description
-      }'/>
+                }" type="text" readonly value='${input[1].value}'/>
               </div>
             </div>
             <div class="task_control">
@@ -145,6 +141,10 @@ function setCheckedStatus() {
 
     task_btns.children[0].innerText = target.checked ? 'Done' : 'Edit';
     task_btns.children[0].disabled = target.checked ? true : false;
+    task_btns.children[1].style = target.checked ? 'color: #fff' : '';
+    task_btns.children[0].style = target.checked
+      ? 'opacity: 0; pointer-events: none; '
+      : 'opacity: 1';
     getCountOfTasks();
   }
 }
@@ -203,12 +203,20 @@ window.onload = function getStorageTasks() {
                 JSON.parse(localStorage.getItem(task.dataset.id)).isChecked
                   ? 'disabled'
                   : null
-              }>${
+              } style="${
+          JSON.parse(localStorage.getItem(task.dataset.id)).isChecked
+            ? 'opacity: 0; pointer-events: none;'
+            : 'opacity: 1'
+        }">${
           JSON.parse(localStorage.getItem(task.dataset.id)).isChecked
             ? 'Done'
             : 'Edit'
         }</button>
-              <i class="fas fa-trash-alt task_delete_btn"></i>
+              <i class="fas fa-trash-alt task_delete_btn" style="${
+                JSON.parse(localStorage.getItem(task.dataset.id)).isChecked
+                  ? 'color: #fff'
+                  : ''
+              }"></i>
             </div>`
       );
     }
@@ -291,3 +299,6 @@ deleteAllTasks.addEventListener('click', () => {
 });
 
 //добавить проверку на наличие пустых и непустных инпутов
+//адаптив
+//высота блока мейн
+// контекст меню при удалении тасок
