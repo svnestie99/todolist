@@ -343,6 +343,7 @@ input {
 @media screen and (max-width: 650px) {
   .todo {
     margin: 0;
+    height: 110vh;
   }
   .tasks_creator {
     width: 70%;
@@ -353,7 +354,7 @@ input {
 }
 @media screen and (max-width: 600px) {
   header {
-    height: 40px;
+    height: 90px;
     padding: 0px 20px;
   }
   h1 {
@@ -366,15 +367,18 @@ input {
     font-size: 20px;
   }
   .tasks_counter {
-    font-size: 14px;
+    font-size: 15px;
   }
   .delete_tasks {
-    font-size: 12px;
-    height: 25px;
-    width: 70px;
+    font-size: 11px;
+    height: 30px;
+    width: 75px;
+  }
+  .tasks_creator {
+    margin-bottom: 50px;
   }
   .tasks_creator input {
-    font-size: 14px;
+    font-size: 15px;
     padding: 10px;
   }
   .task {
