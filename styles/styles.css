@@ -256,14 +256,14 @@ input {
   padding: 2px;
   border-radius: 20px;
   color: #333;
-  border: 1px solid #333;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: 0.5s;
 }
 
 .task_edit_btn:hover {
   background-color: #333;
   color: #fff;
-  border: 1px solid #fff;
   transition: 0.5s;
 }
 
