@@ -1,7 +1,7 @@
 const input = document.getElementsByTagName('input'),
   list = document.getElementsByClassName('todos')[0],
   btn = document.getElementsByClassName('create_task')[0],
-  switcher = document.getElementsByClassName('toggle')[0],
+  toggle = document.getElementsByClassName('toggle')[0],
   deleteAllTasks = document.getElementsByClassName('delete_tasks')[0],
   tasksCounter = document.getElementsByClassName('tasks_counter')[0],
   header = document.getElementsByTagName('header')[0],
@@ -224,7 +224,7 @@ window.onload = function getStorageTasks() {
   if (localStorage.getItem('theme-mode') == 'dark') {
     document.body.classList.add('dark-theme');
     tasksCounter.classList.add('dark-theme-font');
-    switcher.classList.add('dark-theme-font');
+    toggle.classList.add('dark-theme-font');
     header.classList.add('dark-theme-font');
     btn.classList.add('dark-theme-font');
 
@@ -257,10 +257,12 @@ function getCountOfTasks() {
   } tasks and <span class="done">${doneTasks.length} done</span> `;
 }
 
-function switchThemeMode() {
+function switchThemeMode(event) {
+  let target = event.target
+  console.log(target);
   document.body.classList.toggle('dark-theme');
   tasksCounter.classList.toggle('dark-theme-font');
-  switcher.classList.toggle('dark-theme-font');
+  toggle.classList.toggle('dark-theme-font');
   header.classList.toggle('dark-theme-font');
   btn.classList.toggle('dark-theme-font');
 
@@ -281,7 +283,7 @@ btn.addEventListener('click', addTask);
 list.addEventListener('click', editTask);
 list.addEventListener('click', deleteTask);
 list.addEventListener('click', setCheckedStatus);
-switcher.addEventListener('click', switchThemeMode);
+toggle.addEventListener('click', switchThemeMode);
 
 deleteAllTasks.addEventListener('click', () => {
   if (
@@ -301,4 +303,3 @@ deleteAllTasks.addEventListener('click', () => {
 //добавить проверку на наличие пустых и непустных инпутов
 //адаптив
 //высота блока мейн
-// контекст меню при удалении тасок

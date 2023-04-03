@@ -41,7 +41,7 @@ header {
   width: 100%;
   height: 90px;
   z-index: 1111;
-  padding: 0px 90px;
+  padding: 0px 20px;
   color: #333;
   transition: 0.6s;
 }
@@ -116,13 +116,13 @@ input {
 
 .delete_tasks {
   font-family: 'Poppins', sans-serif;
-  text-transform: uppercase;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   position: relative;
   border-radius: 20px;
-  background-color: #fff;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   color: #333;
   width: 80px;
   height: 30px;
@@ -169,7 +169,7 @@ input {
 }
 
 .done {
-  color: green;
+  color: #4c8e06;
   margin-left: 5px;
 }
 
@@ -249,7 +249,7 @@ input {
 
 .task_edit_btn {
   font-family: 'Poppins', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   cursor: pointer;
   font-weight: 700;
   width: 50px;
@@ -370,7 +370,7 @@ input {
     font-size: 15px;
   }
   .delete_tasks {
-    font-size: 11px;
+    font-size: 12px;
     height: 30px;
     width: 75px;
   }
