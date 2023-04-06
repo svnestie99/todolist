@@ -15,7 +15,6 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 body {
@@ -25,11 +24,17 @@ body {
   transition: 0.6s;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+i {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .main-wrapper {
   position: relative;
   margin: auto;
   max-width: 1350px;
-  min-width: 480px;
   min-height: 100vh;
 }
 
@@ -46,14 +51,14 @@ header {
   transition: 0.6s;
 }
 
-h1 {
+.header_text {
   text-transform: uppercase;
   font-family: 'Orbitron', sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
+  font-size: 23px;
 }
 .header_logo {
   text-transform: uppercase;
@@ -66,6 +71,7 @@ h1 {
 .toggle {
   cursor: pointer;
   color: #333;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .todo {
@@ -109,7 +115,7 @@ input {
   display: flex;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   position: relative;
   color: #333;
   transition: 0.6s;
@@ -140,7 +146,7 @@ input {
   position: relative;
   flex-direction: column;
   align-items: center;
-  min-width: 400px;
+  width: 30%;
 }
 .tasks_creator .dark-theme {
   color: #fff;
@@ -195,11 +201,12 @@ input {
   position: relative;
   justify-content: center;
   width: 100%;
+  top: 50px;
 }
 .task {
   display: flex;
   position: relative;
-  min-width: 400px;
+  width: 30%;
   height: 70px;
   margin: 15px;
   border-radius: 12px;
@@ -343,7 +350,65 @@ input {
   border: 2px solid #fff;
 }
 
+@media screen and (max-width: 1024px) {
+  .tasks_creator {
+    width: 40%;
+  }
+  .task {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 880px) {
+  .tasks_creator {
+    width: 45%;
+  }
+  .task {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .tasks_creator {
+    width: 400px;
+  }
+  .task {
+    width: 400px;
+  }
+}
 @media screen and (max-width: 600px) {
+  .header_text {
+    font-size: 16px;
+  }
+  .header_logo {
+    font-size: 20px;
+  }
+  .tasks_counter {
+    font-size: 13px;
+  }
+  .tasks_creator {
+    width: 80%;
+  }
+  .tasks_creator input {
+    font-size: 14px;
+    padding: 15px;
+  }
+  .task {
+    height: 65px;
+  }
+  .task input {
+    font-size: 14px;
+  }
+  .task_edit_btn {
+    width: 50px;
+    font-size: 12px;
+  }
+  .task_control i {
+    font-size: 12px;
+  }
+  .create_task {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 100px) {
   header {
     height: 90px;
     padding: 0px 20px;
