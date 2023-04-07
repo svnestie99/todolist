@@ -36,6 +36,7 @@ i {
   margin: auto;
   max-width: 1350px;
   min-height: 100vh;
+  min-width: 350px;
 }
 
 header {
@@ -398,8 +399,8 @@ input {
     font-size: 14px;
   }
   .task_edit_btn {
-    width: 50px;
-    font-size: 12px;
+    width: 45px;
+    font-size: 11px;
   }
   .task_control i {
     font-size: 12px;
@@ -408,49 +409,27 @@ input {
     font-size: 40px;
   }
 }
-@media screen and (max-width: 100px) {
-  header {
-    height: 90px;
-    padding: 0px 20px;
+@media screen and (max-width: 440px) {
+  .header_logo {
+    font-size: 18px;
   }
-  h1 {
-    font-size: 20px;
+  .header_text {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 375px) {
+  header {
+    height: 70px;
   }
   .header_logo {
-    font-size: 20px;
+    font-size: 16px;
   }
-  .toggle {
-    font-size: 20px;
-  }
-  .tasks_counter {
-    font-size: 15px;
+  .header_text {
+    font-size: 14px;
   }
   .delete_tasks {
-    font-size: 12px;
-    height: 30px;
-    width: 75px;
-  }
-  .tasks_creator {
-    margin-bottom: 50px;
-  }
-  .tasks_creator input {
-    font-size: 15px;
-    padding: 10px;
-  }
-  .task {
-    height: 65px;
-  }
-  .task input {
-    font-size: 14px;
-  }
-  .task_edit_btn {
-    width: 40px;
     font-size: 10px;
-  }
-  .task_control i {
-    font-size: 14px;
-  }
-  .create_task {
-    font-size: 40px;
+    width: 70px;
+    height: 25px;
   }
 }
