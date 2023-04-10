@@ -79,7 +79,7 @@ function deleteTask() {
 function editTask() {
   let target = event.target;
   const task_input = target.offsetParent.getElementsByClassName('task_input');
-
+  console.log(target);
   if (
     target.classList.contains('task_edit_btn') &&
     target.innerText == 'Edit'
@@ -222,13 +222,12 @@ window.onload = function getStorageTasks() {
     }
   }
   if (localStorage.getItem('theme-mode') == 'dark') {
-    toggle.textContent = 'light_mode'
+    toggle.textContent = 'light_mode';
     document.body.classList.add('dark-theme');
     tasksCounter.classList.add('dark-theme-font');
     toggle.classList.add('dark-theme-font');
     header.classList.add('dark-theme-font');
     btn.classList.add('dark-theme-font');
-    
 
     for (let i = 0; i < input.length; i++) {
       input[i].classList.add('dark-theme');
@@ -260,7 +259,7 @@ function getCountOfTasks() {
 }
 
 function switchThemeMode(event) {
-  let target = event.target
+  let target = event.target;
   console.log(target);
   document.body.classList.toggle('dark-theme');
   tasksCounter.classList.toggle('dark-theme-font');
@@ -268,7 +267,6 @@ function switchThemeMode(event) {
   header.classList.toggle('dark-theme-font');
   btn.classList.toggle('dark-theme-font');
   console.log(toggle.textContent);
-  
 
   for (let i = 0; i < input.length; i++) {
     input[i].classList.toggle('dark-theme');
@@ -279,10 +277,10 @@ function switchThemeMode(event) {
 
   if (document.body.classList.contains('dark-theme')) {
     localStorage.setItem('theme-mode', 'dark');
-    toggle.textContent = 'light_mode'
+    toggle.textContent = 'light_mode';
   } else {
     localStorage.setItem('theme-mode', 'light');
-    toggle.textContent = 'dark_mode'
+    toggle.textContent = 'dark_mode';
   }
 }
 btn.addEventListener('click', addTask);
