@@ -4,17 +4,14 @@ const input = document.getElementsByTagName('input'),
   toggle = document.getElementsByClassName('toggle')[0],
   tasksCounter = document.getElementsByClassName('tasks_counter')[0],
   header = document.getElementsByTagName('header')[0],
-  deleteAllTasks = document.getElementsByClassName('delete_tasks_btn')[0],
-  deleteTaskBtn = document.getElementsByClassName('task_delete_btn');
+  delete_all_btn = document.getElementsByClassName('delete_tasks_btn')[0],
+  delete_task_btn = document.getElementsByClassName('task_delete_btn');
 
 function addTask() {
   if (input[0].value && !input[0].value.startsWith(' ')) {
     const task = document.createElement('div');
-
     task.classList.add('task');
-
     tasksContainer.appendChild(task);
-
     task.dataset.id = input[0].value;
 
     localStorage.setItem(
@@ -25,6 +22,7 @@ function addTask() {
         isChecked: false,
       })
     );
+
     task.insertAdjacentHTML(
       'afterbegin',
       `<div class="task_status">
@@ -94,7 +92,6 @@ function editTask() {
       task_input[i].setAttribute('readonly', 'readonly');
     }
     localStorage.removeItem(target.offsetParent.dataset.id);
-
     target.offsetParent.dataset.id = task_input[0].value;
 
     localStorage.setItem(
@@ -147,6 +144,63 @@ function setCheckedStatus() {
     getCountOfTasks();
   }
 }
+
+function getCountOfTasks() {
+  const doneTasks = [];
+
+  for (let i = 0; i < localStorage.length; i++) {
+    if (localStorage.key(i) != 'theme-mode') {
+      if (
+        JSON.parse(localStorage.getItem(localStorage.key(i))).isChecked == true
+      ) {
+        doneTasks.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+      }
+    }
+  }
+  tasksCounter.innerHTML = `You have: ${
+    localStorage.getItem('theme-mode') === null
+      ? localStorage.length
+      : localStorage.length - 1
+  } tasks and <span class="done">${doneTasks.length} done</span> `;
+}
+
+function switchThemeMode() {
+  document.body.classList.toggle('dark-theme');
+  tasksCounter.classList.toggle('dark-theme-font');
+  toggle.classList.toggle('dark-theme-font');
+  header.classList.toggle('dark-theme-font');
+  createTaskBtn.classList.toggle('dark-theme-font');
+
+  for (let i = 0; i < input.length; i++) {
+    input[i].classList.toggle('dark-theme');
+  }
+  for (let i = 0; i < delete_task_btn.length; i++) {
+    delete_task_btn[i].classList.toggle('dark-theme-font');
+  }
+
+  if (document.body.classList.contains('dark-theme')) {
+    localStorage.setItem('theme-mode', 'dark');
+    toggle.textContent = 'light_mode';
+  } else {
+    localStorage.setItem('theme-mode', 'light');
+    toggle.textContent = 'dark_mode';
+  }
+}
+
+delete_all_btn.addEventListener('click', () => {
+  if (
+    localStorage.getItem('theme-mode') == 'light' ||
+    localStorage.getItem('theme-mode') === null
+  ) {
+    localStorage.clear();
+  } else {
+    localStorage.clear();
+    localStorage.setItem('theme-mode', 'dark');
+  }
+
+  tasksContainer.innerHTML = '';
+  getCountOfTasks();
+});
 
 window.onload = function getStorageTasks() {
   for (let i = 0; i < localStorage.length; i++) {
@@ -231,71 +285,15 @@ window.onload = function getStorageTasks() {
     for (let i = 0; i < input.length; i++) {
       input[i].classList.add('dark-theme');
     }
-    for (let i = 0; i < deleteTaskBtn.length; i++) {
-      deleteTaskBtn[i].classList.add('dark-theme-font');
+    for (let i = 0; i < delete_task_btn.length; i++) {
+      delete_task_btn[i].classList.add('dark-theme-font');
     }
   }
   getCountOfTasks();
 };
 
-function getCountOfTasks() {
-  const doneTasks = [];
-
-  for (let i = 0; i < localStorage.length; i++) {
-    if (localStorage.key(i) != 'theme-mode') {
-      if (
-        JSON.parse(localStorage.getItem(localStorage.key(i))).isChecked == true
-      ) {
-        doneTasks.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-      }
-    }
-  }
-  tasksCounter.innerHTML = `You have: ${
-    localStorage.getItem('theme-mode') === null
-      ? localStorage.length
-      : localStorage.length - 1
-  } tasks and <span class="done">${doneTasks.length} done</span> `;
-}
-
-function switchThemeMode() {
-  document.body.classList.toggle('dark-theme');
-  tasksCounter.classList.toggle('dark-theme-font');
-  toggle.classList.toggle('dark-theme-font');
-  header.classList.toggle('dark-theme-font');
-  createTaskBtn.classList.toggle('dark-theme-font');
-
-  for (let i = 0; i < input.length; i++) {
-    input[i].classList.toggle('dark-theme');
-  }
-  for (let i = 0; i < deleteTaskBtn.length; i++) {
-    deleteTaskBtn[i].classList.toggle('dark-theme-font');
-  }
-
-  if (document.body.classList.contains('dark-theme')) {
-    localStorage.setItem('theme-mode', 'dark');
-    toggle.textContent = 'light_mode';
-  } else {
-    localStorage.setItem('theme-mode', 'light');
-    toggle.textContent = 'dark_mode';
-  }
-}
 createTaskBtn.addEventListener('click', addTask);
 tasksContainer.addEventListener('click', editTask);
 tasksContainer.addEventListener('click', deleteTask);
 tasksContainer.addEventListener('click', setCheckedStatus);
 toggle.addEventListener('click', switchThemeMode);
-
-deleteAllTasks.addEventListener('click', () => {
-  if (
-    localStorage.getItem('theme-mode') == 'light' ||
-    localStorage.getItem('theme-mode') === null
-  ) {
-    localStorage.clear();
-  } else {
-    localStorage.clear();
-    localStorage.setItem('theme-mode', 'dark');
-  }
-
-  tasksContainer.innerHTML = '';
-  getCountOfTasks();
-});
