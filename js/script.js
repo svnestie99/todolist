@@ -1,10 +1,10 @@
 const input = document.getElementsByTagName('input'),
-  list = document.getElementsByClassName('todos')[0],
-  btn = document.getElementsByClassName('create_task')[0],
+  tasksContainer = document.getElementsByClassName('tasks_container')[0],
+  createTaskBtn = document.getElementsByClassName('create_task')[0],
   toggle = document.getElementsByClassName('toggle')[0],
-  deleteAllTasks = document.getElementsByClassName('delete_tasks')[0],
   tasksCounter = document.getElementsByClassName('tasks_counter')[0],
   header = document.getElementsByTagName('header')[0],
+  deleteAllTasks = document.getElementsByClassName('delete_tasks_btn')[0],
   deleteTaskBtn = document.getElementsByClassName('task_delete_btn');
 
 function addTask() {
@@ -13,7 +13,7 @@ function addTask() {
 
     task.classList.add('task');
 
-    list.appendChild(task);
+    tasksContainer.appendChild(task);
 
     task.dataset.id = input[0].value;
 
@@ -71,7 +71,7 @@ function deleteTask() {
   let target = event.target;
   if (target.classList.contains('task_delete_btn')) {
     localStorage.removeItem(target.offsetParent.dataset.id);
-    list.removeChild(target.offsetParent);
+    tasksContainer.removeChild(target.offsetParent);
     getCountOfTasks();
   }
 }
@@ -79,7 +79,6 @@ function deleteTask() {
 function editTask() {
   let target = event.target;
   const task_input = target.offsetParent.getElementsByClassName('task_input');
-  console.log(target);
   if (
     target.classList.contains('task_edit_btn') &&
     target.innerText == 'Edit'
@@ -155,7 +154,7 @@ window.onload = function getStorageTasks() {
       const task = document.createElement('div');
 
       task.classList.add('task');
-      list.appendChild(task);
+      tasksContainer.appendChild(task);
       task.dataset.id = JSON.parse(
         localStorage.getItem(localStorage.key(i))
       ).name;
@@ -227,7 +226,7 @@ window.onload = function getStorageTasks() {
     tasksCounter.classList.add('dark-theme-font');
     toggle.classList.add('dark-theme-font');
     header.classList.add('dark-theme-font');
-    btn.classList.add('dark-theme-font');
+    createTaskBtn.classList.add('dark-theme-font');
 
     for (let i = 0; i < input.length; i++) {
       input[i].classList.add('dark-theme');
@@ -258,15 +257,12 @@ function getCountOfTasks() {
   } tasks and <span class="done">${doneTasks.length} done</span> `;
 }
 
-function switchThemeMode(event) {
-  let target = event.target;
-  console.log(target);
+function switchThemeMode() {
   document.body.classList.toggle('dark-theme');
   tasksCounter.classList.toggle('dark-theme-font');
   toggle.classList.toggle('dark-theme-font');
   header.classList.toggle('dark-theme-font');
-  btn.classList.toggle('dark-theme-font');
-  console.log(toggle.textContent);
+  createTaskBtn.classList.toggle('dark-theme-font');
 
   for (let i = 0; i < input.length; i++) {
     input[i].classList.toggle('dark-theme');
@@ -283,10 +279,10 @@ function switchThemeMode(event) {
     toggle.textContent = 'dark_mode';
   }
 }
-btn.addEventListener('click', addTask);
-list.addEventListener('click', editTask);
-list.addEventListener('click', deleteTask);
-list.addEventListener('click', setCheckedStatus);
+createTaskBtn.addEventListener('click', addTask);
+tasksContainer.addEventListener('click', editTask);
+tasksContainer.addEventListener('click', deleteTask);
+tasksContainer.addEventListener('click', setCheckedStatus);
 toggle.addEventListener('click', switchThemeMode);
 
 deleteAllTasks.addEventListener('click', () => {
@@ -300,7 +296,7 @@ deleteAllTasks.addEventListener('click', () => {
     localStorage.setItem('theme-mode', 'dark');
   }
 
-  list.innerHTML = '';
+  tasksContainer.innerHTML = '';
   getCountOfTasks();
 });
 

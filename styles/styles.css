@@ -75,7 +75,7 @@ header {
   -webkit-tap-highlight-color: transparent;
 }
 
-.todo {
+.todo_container {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -122,7 +122,7 @@ input {
   transition: 0.6s;
 }
 
-.delete_tasks {
+.delete_tasks_btn {
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -136,7 +136,7 @@ input {
   height: 30px;
   transition: 0.5s;
 }
-.delete_tasks:hover {
+.delete_tasks_btn:hover {
   background-color: #333;
   color: #fff;
   transition: 0.5s;
@@ -177,10 +177,13 @@ input {
   letter-spacing: 1.2px;
 }
 
-.todo_container {
+.tasks_container {
   display: flex;
+  flex-wrap: wrap;
   position: relative;
   justify-content: center;
+  width: 100%;
+  margin-top: 50px;
 }
 
 .done {
@@ -196,18 +199,12 @@ input {
   transition: 0.5s;
   padding: 15px;
 }
+
 .create_task:hover {
   transform: scale(1.1);
   transition: 0.5s;
 }
-.todos {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  justify-content: center;
-  width: 100%;
-  margin-top: 50px;
-}
+
 .task {
   display: flex;
   position: relative;
