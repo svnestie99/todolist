@@ -299,8 +299,3 @@ deleteAllTasks.addEventListener('click', () => {
   tasksContainer.innerHTML = '';
   getCountOfTasks();
 });
-
-//добавить проверку на наличие пустых и непустных инпутов
-//адаптив
-//высота блока мейн
-// 1200 992 767

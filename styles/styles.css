@@ -24,6 +24,9 @@ body {
   transition: 0.6s;
 }
 
+input {
+  outline: none;
+}
 button {
   -webkit-tap-highlight-color: transparent;
 }
@@ -53,19 +56,19 @@ header {
 }
 
 .header_text {
-  text-transform: uppercase;
-  font-family: 'Orbitron', sans-serif;
   position: absolute;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 23px;
+  text-transform: uppercase;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 23px;
 }
 .header_logo {
+  position: relative;
+  font-family: 'Orbitron', sans-serif;
   text-transform: uppercase;
   font-weight: 700;
-  font-family: 'Orbitron', sans-serif;
-  position: relative;
   font-size: 30px;
   color: red;
 }
@@ -87,14 +90,10 @@ header {
   border-top-left-radius: 30px;
 }
 
-input {
-  outline: none;
-}
-
 .tasks_creator_container {
-  position: relative;
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: center;
   width: 100%;
 }
@@ -114,19 +113,54 @@ input {
 .tasks_counter {
   font-family: 'Poppins', sans-serif;
   display: flex;
-  text-transform: uppercase;
+  position: relative;
   font-weight: 700;
   font-size: 15px;
-  position: relative;
+  text-transform: uppercase;
   color: #333;
   transition: 0.6s;
 }
 
+.tasks_creator {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  width: 30%;
+}
+.tasks_creator .dark-theme {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.tasks_creator input {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  width: 100%;
+  margin-right: -1px;
+  margin-top: 2px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  padding: 15px;
+  color: #333;
+  border-bottom: 2px solid #333;
+  background-color: #f8f9fa00;
+  transition: 0.6s;
+}
+.tasks_creator input::placeholder {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
 .delete_tasks_btn {
+  cursor: pointer;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   font-weight: 700;
-  cursor: pointer;
   position: relative;
   border-radius: 20px;
   border: none;
@@ -140,55 +174,6 @@ input {
   background-color: #333;
   color: #fff;
   transition: 0.5s;
-}
-
-.tasks_creator {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-}
-.tasks_creator .dark-theme {
-  color: #fff;
-  border-bottom: 2px solid #fff;
-}
-
-.tasks_creator input {
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  width: 100%;
-  padding: 15px;
-  color: #333;
-  margin-right: -1px;
-  margin-top: 2px;
-  border-left: none;
-  border-top: none;
-  border-right: none;
-  border-bottom: 2px solid #333;
-  background-color: #f8f9fa00;
-  transition: 0.6s;
-}
-.tasks_creator input::placeholder {
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 10px;
-  letter-spacing: 1.2px;
-}
-
-.tasks_container {
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  justify-content: center;
-  width: 100%;
-  margin-top: 50px;
-}
-
-.done {
-  color: #4c8e06;
-  margin-left: 5px;
 }
 
 .create_task {
@@ -205,6 +190,14 @@ input {
   transition: 0.5s;
 }
 
+.tasks_container {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
 .task {
   display: flex;
   position: relative;
@@ -230,8 +223,7 @@ input {
   width: 65%;
   padding: 0px 20px;
 }
-
-.task_name input {
+.task input {
   font-family: 'Poppins', sans-serif;
   width: 100%;
   font-size: 14px;
@@ -241,13 +233,9 @@ input {
   background-color: #f8f9fa00;
 }
 .task_description input {
-  font-family: 'Poppins', sans-serif;
-  width: 100%;
   font-size: 12px;
-  border: none;
   color: #333;
   padding: 5px;
-  background-color: #f8f9fa00;
 }
 
 .task_control {
@@ -294,16 +282,25 @@ input {
   border-bottom: 2px solid gray;
   margin-bottom: -2px;
 }
+
 .dark-theme {
   background-color: #333;
   color: #fff;
 }
+
 .dark-theme-font {
   color: #fff;
 }
+
 .task .dark-theme {
   color: #fff;
 }
+
+.done {
+  color: #4c8e06;
+  margin-left: 5px;
+}
+
 .checked {
   background-color: green;
   transition: 0.6s;
@@ -361,6 +358,7 @@ input {
     width: 40%;
   }
 }
+
 @media screen and (max-width: 880px) {
   .tasks_creator {
     width: 45%;
@@ -369,6 +367,7 @@ input {
     width: 45%;
   }
 }
+
 @media screen and (max-width: 650px) {
   .tasks_creator {
     width: 400px;
@@ -377,6 +376,7 @@ input {
     width: 400px;
   }
 }
+
 @media screen and (max-width: 600px) {
   .header_text {
     font-size: 16px;
@@ -411,6 +411,7 @@ input {
     font-size: 40px;
   }
 }
+
 @media screen and (max-width: 440px) {
   .header_logo {
     font-size: 18px;
@@ -419,6 +420,7 @@ input {
     font-size: 14px;
   }
 }
+
 @media screen and (max-width: 375px) {
   header {
     height: 70px;
